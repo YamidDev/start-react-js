@@ -1,0 +1,12 @@
+{
+    "name": "yamidev/yamid",
+    "require-dev": {
+        "jenssegers/blade": "^1.4"
+    },
+    "authors": [
+        {
+            "name": "Yamid Cueto",
+            "email": "yamidcuetomazo@gmail.com"
+        }
+    ]
+}
