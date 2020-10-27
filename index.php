@@ -5,6 +5,6 @@
     
     $blade = new Blade('views', 'cache');
 
-    echo $blade->make('text', ['name' => 'Yamid cueto M'])->render();
+    echo $blade->make('home')->render();
 
 ?>

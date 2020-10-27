@@ -8,11 +8,35 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
-      <div class="container">
-          @yield('content')
-      </div>
+      <div id="app" />
+      <script type="text/babel">
+        const app = document.querySelector('#app');
+
+        const App = () => {
+            const [count, setCount] = React.useState(0);
+
+            const clickHandler = (type, step = 1) => () => {
+                if (type === 'increment') setCount(c => c + step);
+                if (type === 'decrement') setCount(c => c - step);
+            }
+
+            return (
+                <div>
+                    <div>{count}</div>
+                    <div><button onClick={clickHandler('increment')}>+</button></div>
+                    <div><button onClick={clickHandler('decrement')}>-</button></div>
+                </div>
+            )
+        };
+
+        ReactDOM.render(<App />, app);
+      </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
